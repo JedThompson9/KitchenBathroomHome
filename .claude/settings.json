@@ -52,7 +52,10 @@
       "Bash(powershell -NoProfile -Command \"Get-NetTCPConnection -LocalPort 3000 -State Listen | Select-Object -ExpandProperty OwningProcess\")",
       "Bash(powershell -NoProfile -Command \"Stop-Process -Id 4144 -Force\")",
       "Bash(curl -s -o /dev/null -w \"post-kill check: %{http_code}\\\\n\" http://localhost:3000/ --max-time 2)",
-      "Bash(curl -s http://localhost:3000/)"
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"server check: %{http_code}\\\\n\" http://localhost:3000/ --max-time 3)",
+      "Bash(node \"/c/Users/jedth/AppData/Local/Temp/claude/c--Git-KitchenBathroomHome/054c15bb-7acb-4834-a48f-8bb67dceab7d/scratchpad/pw-dropdown-debug2.js\")",
+      "Bash(node \"/c/Users/jedth/AppData/Local/Temp/claude/c--Git-KitchenBathroomHome/054c15bb-7acb-4834-a48f-8bb67dceab7d/scratchpad/pw-dropdown-debug.js\")"
     ]
   }
 }

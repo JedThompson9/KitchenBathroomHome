@@ -364,7 +364,9 @@ section { padding-block: var(--space-9); }
   .main-nav.is-open { max-height: 480px; box-shadow: var(--shadow-md); }
   .main-nav__list { flex-direction: column; align-items: stretch; gap: 0; padding: var(--space-4) var(--space-5); }
   .main-nav__list > li > a { display: block; padding: var(--space-4) 0; }
-  .has-dropdown .dropdown {
+  .has-dropdown .dropdown,
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
     position: static;
     opacity: 1;
     visibility: visible;
