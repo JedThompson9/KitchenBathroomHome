@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg">
+      <img src="<%= categories.kitchen.heroImage %>" alt="Bright modern kitchen with island bench, designed and installed by <%= site.name %>">
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__eyebrow">✦ Brisbane's Kitchen, Bathroom &amp; Home Specialists</span>
+        <h1>Creating spaces that are as unique as you are.</h1>
+        <p class="lead">From concept to completion, <%= site.name %> designs and builds beautiful kitchens, bathrooms and living spaces that suit the way your family actually lives.</p>
+        <div class="hero__actions">
+          <a href="/contact" class="btn btn--primary">Get a Free Quote</a>
+          <a href="/gallery" class="btn btn--outline" style="color:#fff;">View Our Gallery</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll"><span class="dot"></span> Scroll</div>
+  </section>
+
+  <!-- INTRO (matches "creating spaces" reference block) -->
+  <section>
+    <div class="container">
+      <div class="intro reveal">
+        <div class="intro__lead">
+          <span class="eyebrow">Welcome to <%= site.name %></span>
+          <h2>The heart of your home deserves more than just four walls.</h2>
+        </div>
+        <div class="intro__body">
+          <p>In today's busy households, the kitchen has evolved into more than just a place to cook — it's often the heart of the home and a hub for entertaining. That's why style, functionality and durability are essential when planning kitchen renovations. The right layout, colours and materials can completely transform your kitchen into a warm, welcoming and practical space. Likewise, thoughtfully designed bathroom renovations can enhance comfort, improve functionality, and add lasting value to your home.</p>
+          <p>At <%= site.name %>, we specialise in creating stunning, custom-designed kitchens, bathrooms and living spaces tailored to your lifestyle and budget. Our expert team collaborates with you to bring your ideas to life, turning concepts into practical, beautifully crafted spaces.</p>
+          <p>We understand that every home and family is different. That's why we focus on personalised solutions that reflect your needs, tastes, and the way you live. Whether you're dreaming of a sleek modern kitchen or a spa-like bathroom, we're here to help you create a space you'll love for years to come.</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat"><span class="stat__num">15+</span><span class="stat__label">Years of experience</span></div>
+          <div class="stat"><span class="stat__num">800+</span><span class="stat__label">Projects completed</span></div>
+          <div class="stat"><span class="stat__num">4.9/5</span><span class="stat__label">Average client rating</span></div>
+          <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Locally owned &amp; operated</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SPLIT -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="cta-split">
+        <div class="cta-split__media reveal">
+          <img src="<%= categories.bathroom.heroImage %>" alt="Bright spa-style bathroom with freestanding bath, designed by <%= site.name %>" loading="lazy">
+        </div>
+        <div class="cta-split__content reveal">
+          <span class="eyebrow">Ready When You Are</span>
+          <h2>Let's turn your renovation ideas into reality.</h2>
+          <p>Book a free, no-obligation consultation with our design team. We'll talk through your goals, your space and your budget — then map out exactly how we can bring your vision to life.</p>
+          <ul class="cta-split__list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Free in-home or showroom consultation</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Fixed-price quotes, no surprises</li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Local Brisbane team, start to finish</li>
+          </ul>
+          <div>
+            <a href="/contact" class="btn btn--primary">Book Your Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Visit Our Showroom</span>
+        <h2>Come and say hello in Stones Corner.</h2>
+      </div>
+      <div class="location">
+        <div class="location__card reveal">
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <h4>Address</h4>
+              <p><%= site.address %></p>
+            </div>
+          </div>
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div>
+              <h4>Showroom Hours</h4>
+              <p>Mon&ndash;Fri: 8:30am&ndash;5pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
+            </div>
+          </div>
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div>
+              <h4>Get In Touch</h4>
+              <p><a href="tel:<%= site.phone.replace(/[^+\d]/g, '') %>"><%= site.phone %></a><br><a href="mailto:<%= site.email %>"><%= site.email %></a></p>
+            </div>
+          </div>
+          <a href="/contact" class="btn btn--outline location__card-cta">Get Directions &amp; Contact Us</a>
+        </div>
+        <div class="location__map reveal">
+          <iframe
+            src="<%= site.mapEmbedSrc %>"
+            title="Map showing <%= site.name %> at <%= site.address %>"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Our Work</span>
+        <h2>Kitchens, bathrooms &amp; home spaces we love creating.</h2>
+      </div>
+      <div class="showcase-grid reveal-stagger">
+        <% showcase.forEach(function(item, i) { %>
+        <div class="showcase-item">
+          <img src="<%= item.image %>" alt="<%= item.name %>" loading="lazy">
+          <span class="showcase-item__label"><%= item.name %></span>
+        </div>
+        <% }); %>
+      </div>
+      <div class="text-center mt-7">
+        <a href="/gallery" class="btn btn--primary">Explore the Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Client Love</span>
+        <h2>Don't just take our word for it.</h2>
+      </div>
+      <div class="testimonials-track reveal-stagger">
+        <% testimonials.forEach(function(t) { %>
+        <div class="testimonial-card">
+          <div class="stars" aria-label="<%= t.rating %> out of 5 stars">
+            <% for (let i = 0; i < t.rating; i++) { %>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+            <% } %>
+          </div>
+          <blockquote>&ldquo;<%= t.quote %>&rdquo;</blockquote>
+          <div class="testimonial-card__author">
+            <img src="<%= t.avatar %>" alt="<%= t.name %>" loading="lazy">
+            <div>
+              <strong><%= t.name %></strong>
+              <span><%= t.location %></span>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

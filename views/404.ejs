@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main>
+  <section class="error-page">
+    <div class="container">
+      <span class="code">404</span>
+      <h1 style="margin-top: var(--space-4);">Page Not Found</h1>
+      <p style="max-width:480px; margin-inline:auto; margin-top: var(--space-3); margin-bottom: var(--space-6);">Sorry, we couldn't find the page you were looking for. It might have been moved or no longer exists.</p>
+      <a href="/" class="btn btn--primary">Back To Home</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

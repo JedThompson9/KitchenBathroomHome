@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<%
+function errorFor(field) {
+  const found = (errors || []).find(e => e.path === field);
+  return found ? found.msg : null;
+}
+%>
+
+<main>
+
+  <section class="page-banner" style="min-height:260px;">
+    <div class="page-banner__bg">
+      <img src="https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=1600&q=75" alt="Modern bathroom vanity">
+    </div>
+    <div class="container">
+      <div class="page-banner__content">
+        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <span>Contact</span></div>
+        <h1>Let's Talk About Your Project</h1>
+        <p>Reach out for a free quote, or drop by our Stones Corner showroom.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info-card reveal">
+          <div>
+            <span class="eyebrow">Contact Details</span>
+            <h2 style="font-size:1.5rem;">We'd love to hear from you</h2>
+          </div>
+
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <h4>Showroom Address</h4>
+              <p><%= site.address %></p>
+            </div>
+          </div>
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:<%= site.phone.replace(/[^+\d]/g, '') %>"><%= site.phone %></a></p>
+            </div>
+          </div>
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:<%= site.email %>"><%= site.email %></a></p>
+            </div>
+          </div>
+          <div class="location__detail">
+            <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div>
+              <h4>Showroom Hours</h4>
+              <p>Mon&ndash;Fri: 8:30am&ndash;5pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
+            </div>
+          </div>
+
+          <div class="location__map" style="min-height:220px;">
+            <iframe
+              src="<%= site.mapEmbedSrc %>"
+              title="Map showing <%= site.name %> at <%= site.address %>"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="form-card reveal">
+          <span class="eyebrow">Send An Enquiry</span>
+          <h2 style="font-size:1.5rem; margin-bottom: var(--space-5);">Tell us about your project</h2>
+
+          <% if (success) { %>
+            <div class="form-alert form-alert--success" role="status">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+              <span>Thanks for reaching out! Your message has been received &mdash; our team will be in touch within one business day.</span>
+            </div>
+          <% } %>
+          <% if (errors && errors.length) { %>
+            <div class="form-alert form-alert--error" role="alert">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
+              <span>Please fix the highlighted fields below and try again.</span>
+            </div>
+          <% } %>
+
+          <form id="contactForm" action="/contact" method="POST" novalidate>
+            <div class="form-grid">
+              <div class="form-field <%= errorFor('name') ? 'has-error' : '' %>">
+                <label for="name">Full Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" value="<%= values.name || '' %>" autocomplete="name" required>
+                <% if (errorFor('name')) { %><span class="form-field__error"><%= errorFor('name') %></span><% } %>
+              </div>
+              <div class="form-field <%= errorFor('email') ? 'has-error' : '' %>">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" value="<%= values.email || '' %>" autocomplete="email" required>
+                <% if (errorFor('email')) { %><span class="form-field__error"><%= errorFor('email') %></span><% } %>
+              </div>
+              <div class="form-field <%= errorFor('phone') ? 'has-error' : '' %>">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="<%= values.phone || '' %>" autocomplete="tel">
+                <% if (errorFor('phone')) { %><span class="form-field__error"><%= errorFor('phone') %></span><% } %>
+              </div>
+              <div class="form-field <%= errorFor('projectType') ? 'has-error' : '' %>">
+                <label for="projectType">Project Type <span class="req">*</span></label>
+                <select id="projectType" name="projectType" required>
+                  <option value="" disabled <%= !values.projectType ? 'selected' : '' %>>Select a project type</option>
+                  <option value="kitchen" <%= values.projectType === 'kitchen' ? 'selected' : '' %>>Kitchen</option>
+                  <option value="bathroom" <%= values.projectType === 'bathroom' ? 'selected' : '' %>>Bathroom</option>
+                  <option value="home" <%= values.projectType === 'home' ? 'selected' : '' %>>Home / Living Space</option>
+                  <option value="other" <%= values.projectType === 'other' ? 'selected' : '' %>>Other</option>
+                </select>
+                <% if (errorFor('projectType')) { %><span class="form-field__error"><%= errorFor('projectType') %></span><% } %>
+              </div>
+              <div class="form-field full <%= errorFor('message') ? 'has-error' : '' %>">
+                <label for="message">Tell Us About Your Project <span class="req">*</span></label>
+                <textarea id="message" name="message" required><%= values.message || '' %></textarea>
+                <% if (errorFor('message')) { %><span class="form-field__error"><%= errorFor('message') %></span><% } %>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>
