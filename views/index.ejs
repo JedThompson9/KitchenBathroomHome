@@ -11,13 +11,13 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero__bg">
-      <img src="<%= categories.kitchen.heroImage %>" alt="Bright modern kitchen with island bench, designed and installed by <%= site.name %>">
+      <img src="<%= categories.bathroom.heroImage %>" alt="Bright spa-style bathroom with freestanding bath, designed and installed by <%= site.name %>">
     </div>
     <div class="container">
       <div class="hero__content">
-        <span class="hero__eyebrow">✦ Brisbane's Kitchen, Bathroom &amp; Home Specialists</span>
+        <span class="hero__eyebrow">✦ Brisbane's Bathroom, Kitchen &amp; Home Specialists</span>
         <h1>Creating spaces that are as unique as you are.</h1>
-        <p class="lead">From concept to completion, <%= site.name %> designs and builds beautiful kitchens, bathrooms and living spaces that suit the way your family actually lives.</p>
+        <p class="lead">From concept to completion, <%= site.name %> designs and builds beautiful bathrooms, kitchens and living spaces that suit the way your family actually lives.</p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--primary">Get a Free Quote</a>
           <a href="/gallery" class="btn btn--outline" style="color:#fff;">View Our Gallery</a>
@@ -36,9 +36,9 @@
           <h2>The heart of your home deserves more than just four walls.</h2>
         </div>
         <div class="intro__body">
-          <p>In today's busy households, the kitchen has evolved into more than just a place to cook — it's often the heart of the home and a hub for entertaining. That's why style, functionality and durability are essential when planning kitchen renovations. The right layout, colours and materials can completely transform your kitchen into a warm, welcoming and practical space. Likewise, thoughtfully designed bathroom renovations can enhance comfort, improve functionality, and add lasting value to your home.</p>
-          <p>At <%= site.name %>, we specialise in creating stunning, custom-designed kitchens, bathrooms and living spaces tailored to your lifestyle and budget. Our expert team collaborates with you to bring your ideas to life, turning concepts into practical, beautifully crafted spaces.</p>
-          <p>We understand that every home and family is different. That's why we focus on personalised solutions that reflect your needs, tastes, and the way you live. Whether you're dreaming of a sleek modern kitchen or a spa-like bathroom, we're here to help you create a space you'll love for years to come.</p>
+          <p>Bathrooms have evolved from purely functional spaces into personal retreats — and it's where we do our best work. That's why style, functionality and durability are essential when planning a bathroom renovation: the right fixtures, tiles and layout can transform your bathroom into a warm, spa-like space you look forward to using every day. Likewise, thoughtfully designed kitchen renovations can enhance comfort, improve functionality, and add lasting value to your home.</p>
+          <p>At <%= site.name %>, we specialise in creating stunning, custom-designed bathrooms, kitchens and living spaces tailored to your lifestyle and budget. Our expert team collaborates with you to bring your ideas to life, turning concepts into practical, beautifully crafted spaces.</p>
+          <p>We understand that every home and family is different. That's why we focus on personalised solutions that reflect your needs, tastes, and the way you live. Whether you're dreaming of a spa-like bathroom or a sleek modern kitchen, we're here to help you create a space you'll love for years to come.</p>
         </div>
 
         <div class="stats-row">
@@ -56,7 +56,7 @@
     <div class="container">
       <div class="cta-split">
         <div class="cta-split__media reveal">
-          <img src="<%= categories.bathroom.heroImage %>" alt="Bright spa-style bathroom with freestanding bath, designed by <%= site.name %>" loading="lazy">
+          <img src="<%= categories.bathroom.products[1].image %>" alt="Walk-in shower and timber vanity bathroom renovation by <%= site.name %>" loading="lazy">
         </div>
         <div class="cta-split__content reveal">
           <span class="eyebrow">Ready When You Are</span>
@@ -124,7 +124,7 @@
     <div class="container">
       <div class="section-head center">
         <span class="eyebrow">Our Work</span>
-        <h2>Kitchens, bathrooms &amp; home spaces we love creating.</h2>
+        <h2>Bathrooms, kitchens &amp; home spaces we love creating.</h2>
       </div>
       <div class="showcase-grid reveal-stagger">
         <% showcase.forEach(function(item, i) { %>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main>
+
+  <section style="padding-top: var(--space-6);">
+    <div class="container">
+      <div class="breadcrumbs" style="margin-bottom: var(--space-7);">
+        <a href="/">Home</a> <span>/</span>
+        <a href="/gallery">Gallery</a> <span>/</span>
+        <a href="/gallery/bathroom">Bathrooms</a> <span>/</span>
+        <a href="/gallery/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
+        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>"><%= supplier.name %></a> <span>/</span>
+        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>"><%= product.name %></a> <span>/</span>
+        <span><%= variant.name %></span>
+      </div>
+
+      <div class="about-split about-split--start">
+        <div class="about-split__media reveal">
+          <img src="<%= variant.image %>" alt="<%= variant.name %>">
+
+          <% if (variant.gallery && variant.gallery.length) { %>
+          <div class="variant-gallery" data-lightbox-group>
+            <% variant.gallery.forEach(function(src, i) { %>
+              <button type="button" class="variant-gallery__thumb <%= i === 0 ? 'is-active' : '' %>" data-lightbox-src="<%= src %>">
+                <img src="<%= src %>" alt="<%= variant.name %> — image <%= i + 1 %>" loading="lazy">
+              </button>
+            <% }); %>
+          </div>
+          <% } %>
+        </div>
+        <div class="about-split__content reveal product-detail__content">
+          <div class="product-detail__meta">
+            <span class="product-detail__tag"><%= subcategory.name %></span>
+            <span class="product-detail__tag"><%= supplier.name %></span>
+          </div>
+          <h1 style="margin-bottom: var(--space-2);"><%= variant.name %></h1>
+          <% if (variant.code) { %><p class="variant-detail__code"><%= variant.code %></p><% } %>
+
+          <% if (variant.specs && variant.specs.length) { %>
+          <div class="variant-specs">
+            <% variant.specs.forEach(function(spec) { %>
+            <div class="variant-specs__row">
+              <span class="variant-specs__label"><%= spec.label %></span>
+              <span class="variant-specs__value"><%= spec.value %></span>
+            </div>
+            <% }); %>
+          </div>
+          <% } %>
+
+          <% if (variant.details) { %>
+          <div class="variant-section">
+            <h4>Details</h4>
+            <p style="margin:0; font-size:0.92rem;"><%= variant.details %></p>
+          </div>
+          <% } %>
+
+          <% if (variant.sizeOptions && variant.sizeOptions.length) { %>
+          <div class="variant-section">
+            <h4>Optional Size</h4>
+            <div class="size-chip-row">
+              <% variant.sizeOptions.forEach(function(size) { %>
+                <span class="size-chip <%= size === variant.currentSize ? 'is-active' : '' %>"><%= size %></span>
+              <% }); %>
+            </div>
+          </div>
+          <% } %>
+
+          <% if (variant.topOptions && variant.topOptions.length) { %>
+          <div class="variant-section">
+            <h4>Optional Top</h4>
+            <div class="swatch-row">
+              <% variant.topOptions.forEach(function(top) { %>
+                <span class="swatch-item">
+                  <span class="swatch-item__circle" style="background: <%= top.color %>;"></span>
+                  <span class="swatch-item__label"><%= top.name %></span>
+                </span>
+              <% }); %>
+            </div>
+          </div>
+          <% } %>
+
+          <% if (variant.handleOptions && variant.handleOptions.length) { %>
+          <div class="variant-section">
+            <h4>Optional Handles</h4>
+            <div class="swatch-row">
+              <% variant.handleOptions.forEach(function(handle) { %>
+                <span class="swatch-item">
+                  <span class="swatch-item__circle" style="background: <%= handle.color %>;"></span>
+                  <span class="swatch-item__label"><%= handle.name %></span>
+                </span>
+              <% }); %>
+            </div>
+          </div>
+          <% } %>
+
+          <% if (variant.features && variant.features.length) { %>
+          <div class="variant-section">
+            <h4>Features</h4>
+            <dl class="feature-list">
+              <% variant.features.forEach(function(feature) { %>
+              <div class="feature-list__row">
+                <dt><%= feature.label %></dt>
+                <dd><%= feature.value %></dd>
+              </div>
+              <% }); %>
+            </dl>
+          </div>
+          <% } %>
+
+          <div class="product-detail__actions">
+            <a href="/contact?product=<%= encodeURIComponent(variant.name) %>&projectType=bathroom" class="btn btn--primary">Enquire About This Product</a>
+            <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--outline">Back To <%= product.name %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% if (variant.gallery && variant.gallery.length) { %>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Close image viewer">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <img src="" alt="" id="lightboxImage">
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+  <% } %>
+
+  <section class="section-alt mt-7">
+    <div class="container text-center reveal">
+      <h2 style="margin-bottom: var(--space-4);">Explore more <%= product.name %> options.</h2>
+      <p style="max-width:560px; margin-inline:auto; margin-bottom: var(--space-6);">Browse other sizes and finishes, or head back to the full <%= supplier.name %> range.</p>
+      <div style="display:flex; gap: var(--space-4); justify-content:center; flex-wrap:wrap;">
+        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--primary">More Sizes &amp; Finishes</a>
+        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>" class="btn btn--outline"><%= supplier.name %> Range</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main>
+
+  <section class="page-banner" style="min-height:260px;">
+    <div class="page-banner__bg">
+      <img src="<%= subcategory.image %>" alt="<%= supplier.name %> <%= subcategory.name %>">
+    </div>
+    <div class="container">
+      <div class="page-banner__content">
+        <div class="breadcrumbs">
+          <a href="/">Home</a> <span>/</span>
+          <a href="/gallery">Gallery</a> <span>/</span>
+          <a href="/gallery/bathroom">Bathrooms</a> <span>/</span>
+          <a href="/gallery/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
+          <span><%= supplier.name %></span>
+        </div>
+        <h1><%= supplier.name %></h1>
+        <p><%= supplier.blurb %></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow"><%= subcategory.name %></span>
+        <h2>The <%= supplier.name %> range.</h2>
+      </div>
+
+      <div class="photo-grid reveal-stagger">
+        <% supplier.products.forEach(function(product) { %>
+        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="photo-grid-item">
+          <div class="photo-grid-item__media">
+            <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy">
+          </div>
+          <span class="photo-grid-item__name"><%= product.name %></span>
+        </a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-primary">
+    <div class="container text-center reveal">
+      <h2 style="color:#fff; margin-bottom: var(--space-4);">Interested in something here?</h2>
+      <p style="color:rgba(255,255,255,0.85); max-width:560px; margin-inline:auto; margin-bottom: var(--space-6);">Get in touch and we'll help you find the right fit for your renovation.</p>
+      <a href="/contact" class="btn btn--light">Talk To Our Team</a>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js"></script>
+</body>
+</html>

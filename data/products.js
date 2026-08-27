@@ -5,34 +5,6 @@ function img(id, w = 1200) {
 }
 
 const categories = {
-  kitchen: {
-    slug: 'kitchen',
-    name: 'Kitchens',
-    tagline: 'Where good food and great memories are made.',
-    heroImage: img('1600489000022-c2086d79f9d4', 1600),
-    products: [
-      {
-        name: 'Coastal White Island Kitchen',
-        description: 'Shaker-style cabinetry, stone benchtops and a family-sized island bench.',
-        image: img('1556909212-d5b604d0c90d')
-      },
-      {
-        name: 'Midnight Navy Shaker Kitchen',
-        description: 'Navy cabinetry with brushed brass hardware and warm timber floors.',
-        image: img('1600489000022-c2086d79f9d4')
-      },
-      {
-        name: 'Entertainer’s Island Bench',
-        description: 'A statement island with bar seating, pendant lighting and gloss finishes.',
-        image: img('1556912167-f556f1f39fdf')
-      },
-      {
-        name: 'Everyday Family Kitchen',
-        description: 'Practical, beautiful and built to handle busy family life.',
-        image: img('1556911220-e15b29be8c8f')
-      }
-    ]
-  },
   bathroom: {
     slug: 'bathroom',
     name: 'Bathrooms',
@@ -58,6 +30,34 @@ const categories = {
         name: 'Classic Monochrome Bathroom',
         description: 'Timeless checkerboard floor tiles with crisp white fittings.',
         image: img('1552321554-5fefe8c9ef14')
+      }
+    ]
+  },
+  kitchen: {
+    slug: 'kitchen',
+    name: 'Kitchens',
+    tagline: 'Where good food and great memories are made.',
+    heroImage: img('1600489000022-c2086d79f9d4', 1600),
+    products: [
+      {
+        name: 'Coastal White Island Kitchen',
+        description: 'Shaker-style cabinetry, stone benchtops and a family-sized island bench.',
+        image: img('1556909212-d5b604d0c90d')
+      },
+      {
+        name: 'Midnight Navy Shaker Kitchen',
+        description: 'Navy cabinetry with brushed brass hardware and warm timber floors.',
+        image: img('1600489000022-c2086d79f9d4')
+      },
+      {
+        name: 'Entertainer’s Island Bench',
+        description: 'A statement island with bar seating, pendant lighting and gloss finishes.',
+        image: img('1556912167-f556f1f39fdf')
+      },
+      {
+        name: 'Everyday Family Kitchen',
+        description: 'Practical, beautiful and built to handle busy family life.',
+        image: img('1556911220-e15b29be8c8f')
       }
     ]
   },

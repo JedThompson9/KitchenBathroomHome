@@ -69,6 +69,51 @@
     });
   }
 
+  // ---- Image gallery lightbox (variant detail pages) ----
+  var lightbox = document.getElementById('lightbox');
+  var galleryGroup = document.querySelector('[data-lightbox-group]');
+  if (lightbox && galleryGroup) {
+    var thumbs = Array.prototype.slice.call(galleryGroup.querySelectorAll('[data-lightbox-src]'));
+    var images = thumbs.map(function (t) { return { src: t.getAttribute('data-lightbox-src'), alt: t.querySelector('img') ? t.querySelector('img').alt : '' }; });
+    var lightboxImage = document.getElementById('lightboxImage');
+    var closeBtn = document.getElementById('lightboxClose');
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
+    var currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = (index + images.length) % images.length;
+      lightboxImage.src = images[currentIndex].src;
+      lightboxImage.alt = images[currentIndex].alt;
+      thumbs.forEach(function (t, i) { t.classList.toggle('is-active', i === currentIndex); });
+    }
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    thumbs.forEach(function (thumb, i) {
+      thumb.addEventListener('click', function () { openLightbox(i); });
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', function () { showImage(currentIndex - 1); });
+    nextBtn.addEventListener('click', function () { showImage(currentIndex + 1); });
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+  }
+
   // ---- Category pill filter on gallery category pages ----
   var pills = document.querySelectorAll('[data-filter-pill]');
   var productCards = document.querySelectorAll('[data-product-category]');

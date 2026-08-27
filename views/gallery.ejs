@@ -10,13 +10,13 @@
 
   <section class="page-banner">
     <div class="page-banner__bg">
-      <img src="<%= categories.bathroom.heroImage %>" alt="Gallery of kitchen, bathroom and home renovations">
+      <img src="<%= categories.bathroom.heroImage %>" alt="Gallery of bathroom, kitchen and home renovations">
     </div>
     <div class="container">
       <div class="page-banner__content">
         <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <span>Gallery</span></div>
         <h1>Our Renovation Gallery</h1>
-        <p>Browse real kitchens, bathrooms and home spaces we've designed and built across Brisbane.</p>
+        <p>Browse real bathrooms, kitchens and home spaces we've designed and built across Brisbane.</p>
       </div>
     </div>
   </section>
@@ -32,7 +32,7 @@
         <a href="/gallery/<%= cat.slug %>" class="category-card">
           <img src="<%= cat.heroImage %>" alt="<%= cat.name %> gallery" loading="lazy">
           <div class="category-card__body">
-            <span class="count"><%= cat.products.length %> Projects</span>
+            <span class="count"><%= cat.slug === 'bathroom' ? bathroomSubcategoryCount + ' Categories' : cat.products.length + ' Projects' %></span>
             <h3><%= cat.name %></h3>
             <p><%= cat.tagline %></p>
             <span class="category-card__link">View Gallery

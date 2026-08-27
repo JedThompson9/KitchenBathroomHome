@@ -115,8 +115,8 @@ function errorFor(field) {
                 <label for="projectType">Project Type <span class="req">*</span></label>
                 <select id="projectType" name="projectType" required>
                   <option value="" disabled <%= !values.projectType ? 'selected' : '' %>>Select a project type</option>
-                  <option value="kitchen" <%= values.projectType === 'kitchen' ? 'selected' : '' %>>Kitchen</option>
                   <option value="bathroom" <%= values.projectType === 'bathroom' ? 'selected' : '' %>>Bathroom</option>
+                  <option value="kitchen" <%= values.projectType === 'kitchen' ? 'selected' : '' %>>Kitchen</option>
                   <option value="home" <%= values.projectType === 'home' ? 'selected' : '' %>>Home / Living Space</option>
                   <option value="other" <%= values.projectType === 'other' ? 'selected' : '' %>>Other</option>
                 </select>

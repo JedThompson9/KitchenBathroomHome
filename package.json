@@ -1,7 +1,7 @@
 {
   "name": "kitchenbathroomhome",
   "version": "1.0.0",
-  "description": "Website for KitchenBathroomHome - Kitchen, Bathroom & Home renovation store in Stones Corner, Brisbane",
+  "description": "Website for Bathroom Kitchen Home - Bathroom, Kitchen & Home renovation store in Stones Corner, Brisbane",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -21,7 +21,7 @@ module.exports = [
     rating: 5
   },
   {
-    quote: 'Second time using KitchenBathroomHome, this time for a full home refresh. Consistent quality and communication both times.',
+    quote: 'Second time using Bathroom Kitchen Home, this time for a full home refresh. Consistent quality and communication both times.',
     name: 'David Nguyen',
     location: 'Camp Hill, QLD',
     avatar: 'https://i.pravatar.cc/150?img=68',
