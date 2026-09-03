@@ -15,6 +15,9 @@ const { img } = require('./products');
 function vanityImg(slug) {
   return `/images/products/vanities/${slug}.jpg`;
 }
+function mirrorImg(slug) {
+  return `/images/products/mirrors/${slug}.jpg`;
+}
 
 const otti = {
   slug: 'otti-australia',
@@ -101,6 +104,94 @@ const subcategories = [
                   { label: 'Double Basin', value: 'This is standard with this kit.' },
                   { label: 'Single Basin', value: 'This cabinet is only suitable with a left or right setout for single basin. Should you require single basin, please email us your specification and stone top colour with No Holes code — NH.' }
                 ]
+              },
+              {
+                slug: 'bondi-750mm-satin-white',
+                code: 'BO750W',
+                name: 'Bondi 750mm Satin White Fluted Wall Hung Curve Vanity (12TH & NTH Only)',
+                image: vanityImg('bondi-750mm-satin-white-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '750mm'
+              },
+              {
+                slug: 'bondi-1800mm-satin-white',
+                code: 'BO1800W',
+                name: 'Bondi 1800mm Satin White Fluted Wall Hung Curve Vanity',
+                image: vanityImg('bondi-1800mm-satin-white-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '1800mm'
+              },
+              {
+                slug: 'bondi-600mm-satin-white',
+                code: 'BO600W',
+                name: 'Bondi 600mm Satin White Fluted Wall Hung Curve Vanity (12TH & NTH Only)',
+                image: vanityImg('bondi-600mm-satin-white-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '600mm'
+              },
+              {
+                slug: 'bondi-900mm-satin-white',
+                code: 'BO900W',
+                name: 'Bondi 900mm Satin White Fluted Wall Hung Curve Vanity',
+                image: vanityImg('bondi-900mm-satin-white-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '900mm'
+              },
+              {
+                slug: 'bondi-1200mm-satin-white',
+                code: 'BO1200W',
+                name: 'Bondi 1200mm Satin White Fluted Wall Hung Curve Vanity',
+                image: vanityImg('bondi-1200mm-satin-white-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '1200mm'
+              },
+              {
+                slug: 'bondi-600mm-woodland-oak',
+                code: 'BOW600L',
+                name: 'Bondi 600mm Woodland Oak Fluted Curve Vanity (12TH & NTH Only)',
+                image: vanityImg('bondi-600mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '600mm'
+              },
+              {
+                slug: 'bondi-750mm-woodland-oak',
+                code: 'BOW750L',
+                name: 'Bondi 750mm Woodland Oak Fluted Curve Vanity (12TH & NTH Only)',
+                image: vanityImg('bondi-750mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '750mm'
+              },
+              {
+                slug: 'bondi-900mm-woodland-oak',
+                code: 'BOW900L',
+                name: 'Bondi 900mm Woodland Oak Fluted Curve Vanity',
+                image: vanityImg('bondi-900mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '900mm'
+              },
+              {
+                slug: 'bondi-1200mm-woodland-oak',
+                code: 'BOW1200L',
+                name: 'Bondi 1200mm Woodland Oak Fluted Curve Vanity',
+                image: vanityImg('bondi-1200mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '1200mm'
+              },
+              {
+                slug: 'bondi-1500mm-woodland-oak',
+                code: 'BOW1500L',
+                name: 'Bondi 1500mm Woodland Oak Fluted Curve Vanity',
+                image: vanityImg('bondi-1500mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '1500mm'
+              },
+              {
+                slug: 'bondi-1800mm-woodland-oak',
+                code: 'BOW1800L',
+                name: 'Bondi 1800mm Woodland Oak Fluted Curve Vanity',
+                image: vanityImg('bondi-1800mm-woodland-oak-main'),
+                sizeOptions: ['600mm', '750mm', '900mm', '1200mm', '1500mm', '1800mm'],
+                currentSize: '1800mm'
               }
             ]
           },
@@ -135,13 +226,47 @@ const subcategories = [
     slug: 'mirrors',
     name: 'Mirrors',
     tagline: 'Framed, frameless and backlit mirror options.',
-    image: img('1740595362788-78bc54ea1bad'),
+    image: mirrorImg('led-mirror-main'),
     suppliers: [
       {
         ...otti,
         products: [
-          { slug: 'led-mirror', name: 'LED Mirror', description: 'Otti Australia\'s backlit LED mirror.', image: img('1740595362788-78bc54ea1bad') },
-          { slug: 'metal-frame-mirror', name: 'Metal Frame Mirror', description: 'Otti Australia\'s framed mirror in a range of metal finishes.', image: img('1740595362788-78bc54ea1bad') }
+          {
+            slug: 'led-mirror',
+            name: 'LED Mirror',
+            description: 'Otti Australia\'s backlit LED mirror.',
+            image: mirrorImg('led-mirror-main'),
+            variants: [
+              { slug: 'led-archie-900x600-black', code: 'LED-AR9060B', name: 'LED Archie 900(H)x600(W) Black Metal Frame Mirror', image: mirrorImg('led-archie-900x600-black') },
+              { slug: 'led-archie-900x600-gold', code: 'LED-AR9060G', name: 'LED Archie 900(H)x600(W) Gold Metal Frame Tuffi Mirror', image: mirrorImg('led-archie-900x600-gold') },
+              { slug: 'led-newport-900x450-black-soft-square', code: 'LED-SQM9045B', name: 'LED Newport 900(H)x450(W) Black Metal Frame Tuffi Mirror Soft Square', image: mirrorImg('led-newport-900x450-black-soft-square') },
+              { slug: 'led-newport-900x450-gold-soft-square', code: 'LED-SQM9045G', name: 'LED Newport 900(H)x450(W) Gold Metal Frame Tuffi Mirror Soft Square', image: mirrorImg('led-newport-900x450-gold-soft-square') },
+              { slug: 'led-bondi-800mm-frameless', code: 'LED-R800N', name: 'LED Bondi 800mm Frameless Tuffi Mirror', image: mirrorImg('led-bondi-800mm-frameless') },
+              { slug: 'led-noosa-900x450-frameless', code: 'LED-OV9045N', name: 'LED Noosa 900(H)x450(W) Frameless Tuffi Mirror', image: mirrorImg('led-noosa-900x450-frameless') },
+              { slug: 'led-noosa-900x450-gold-metal-frame', code: 'LED-MF9045G-N', name: 'LED Noosa 900(H)x450(W) Gold Metal Frame Tuffi Mirror', image: mirrorImg('led-noosa-900x450-gold-metal-frame') },
+              { slug: 'led-noosa-900x450-black-metal-frame', code: 'LED-MF9045B-N', name: 'LED Noosa 900(H)x450(W) Black Metal Frame Tuffi Mirror', image: mirrorImg('led-noosa-900x450-black-metal-frame') }
+            ]
+          },
+          {
+            slug: 'metal-frame-mirror',
+            name: 'Metal Frame Mirror',
+            description: 'Otti Australia\'s framed mirror in a range of metal finishes.',
+            image: mirrorImg('metal-frame-mirror-main'),
+            variants: [
+              { slug: 'archie-900x600-black', code: 'MFMAR9060B-N', name: 'Archie 900(H)x600(W) Black Metal Framed Tuffi Mirror', image: mirrorImg('archie-900x600-black') },
+              { slug: 'archie-900x600-gold', code: 'MFMAR9060G-N', name: 'Archie 900(H)x600(W) Gold Metal Framed Tuffi Mirror', image: mirrorImg('archie-900x600-gold') },
+              { slug: 'archie-900x600-white', code: 'MFMAR9060W', name: 'Archie 900(H)x600(W) White Metal Framed Tuffi Mirror', image: mirrorImg('archie-900x600-white') },
+              { slug: 'noosa-900x450-black', code: 'MFMO9045B-N', name: 'Noosa 900(H)x450(W) Black Metal Frame Tuffi Mirror', image: mirrorImg('noosa-900x450-black') },
+              { slug: 'noosa-900x450-gold', code: 'MFMO9045G-N', name: 'Noosa 900(H)x450(W) Gold Metal Frame Tuffi Mirror', image: mirrorImg('noosa-900x450-gold') },
+              { slug: 'noosa-1200x600-gold', code: 'MFMO1260G-N', name: 'Noosa 1200(W)x600(H) Gold Metal Frame Tuffi Mirror — Install Horizontal or Vertical', image: mirrorImg('noosa-1200x600-gold') },
+              { slug: 'noosa-1200x600-black', code: 'MFMO1260B-N', name: 'Noosa 1200(W)x600(H) Black Metal Frame Tuffi Mirror — Install Horizontal or Vertical', image: mirrorImg('noosa-1200x600-black') },
+              { slug: 'london-700mm-white', code: 'MFM700W', name: 'London 700mm White Metal Frame Tuffi Mirror', image: mirrorImg('london-700mm-white') },
+              { slug: 'noosa-900x450-white', code: 'MFMO9045W', name: 'Noosa 900(H)x450(W) White Metal Frame Tuffi Mirror', image: mirrorImg('noosa-900x450-white') },
+              { slug: 'noosa-1200x600-white', code: 'MFMO1260W', name: 'Noosa 1200(W)x600(H) White Metal Frame Tuffi Mirror — Install Horizontal or Vertical', image: mirrorImg('noosa-1200x600-white') },
+              { slug: 'london-700mm-gold', code: 'MFM700G-N', name: 'London 700mm Gold Metal Frame Tuffi Mirror', image: mirrorImg('london-700mm-gold') },
+              { slug: 'london-700mm-black', code: 'MFM700B-N', name: 'London 700mm Black Metal Frame Tuffi Mirror', image: mirrorImg('london-700mm-black') }
+            ]
+          }
         ]
       }
     ]
