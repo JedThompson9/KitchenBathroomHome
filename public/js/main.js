@@ -49,7 +49,12 @@
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+      // A fixed 0.15 area-visibility threshold works fine for small sections, but for
+      // very tall containers (like a 40+ item product grid) it can require scrolling
+      // an enormous distance before "15% of the whole element" is visible. Using a
+      // near-zero threshold instead means the reveal fires as soon as any part of the
+      // element enters the viewport, regardless of how tall it is.
+      { threshold: 0.01, rootMargin: '0px 0px -40px 0px' }
     );
     revealEls.forEach(function (el) { observer.observe(el); });
   } else {
