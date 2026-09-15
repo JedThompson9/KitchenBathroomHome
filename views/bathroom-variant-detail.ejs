@@ -12,16 +12,16 @@
     <div class="container">
       <div class="breadcrumbs" style="margin-bottom: var(--space-7);">
         <a href="/">Home</a> <span>/</span>
-        <a href="/gallery">Gallery</a> <span>/</span>
-        <a href="/gallery/bathroom">Bathrooms</a> <span>/</span>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>"><%= supplier.name %></a> <span>/</span>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>"><%= product.name %></a> <span>/</span>
+        <a href="/product-range">Product Range</a> <span>/</span>
+        <a href="/product-range/bathroom">Bathrooms</a> <span>/</span>
+        <a href="/product-range/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>"><%= supplier.name %></a> <span>/</span>
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>"><%= product.name %></a> <span>/</span>
         <span><%= variant.name %></span>
       </div>
 
-      <div class="about-split about-split--start">
-        <div class="about-split__media reveal">
+      <div class="about-split about-split--start about-split--product">
+        <div class="about-split__media product-detail__media reveal">
           <img src="<%= variant.image %>" alt="<%= variant.name %>">
 
           <% if (variant.gallery && variant.gallery.length) { %>
@@ -115,7 +115,7 @@
 
           <div class="product-detail__actions">
             <a href="/contact?product=<%= encodeURIComponent(variant.name) %>&projectType=bathroom" class="btn btn--primary">Enquire About This Product</a>
-            <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--outline">Back To <%= product.name %></a>
+            <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--outline">Back To <%= product.name %></a>
           </div>
         </div>
       </div>
@@ -137,13 +137,15 @@
   </div>
   <% } %>
 
-  <section class="section-alt mt-7">
+  <%- include('partials/best-sellers') %>
+
+  <section class="mt-7">
     <div class="container text-center reveal">
       <h2 style="margin-bottom: var(--space-4);">Explore more <%= product.name %> options.</h2>
       <p style="max-width:560px; margin-inline:auto; margin-bottom: var(--space-6);">Browse other sizes and finishes, or head back to the full <%= supplier.name %> range.</p>
       <div style="display:flex; gap: var(--space-4); justify-content:center; flex-wrap:wrap;">
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--primary">More Sizes &amp; Finishes</a>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>" class="btn btn--outline"><%= supplier.name %> Range</a>
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="btn btn--primary">More Sizes &amp; Finishes</a>
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>" class="btn btn--outline"><%= supplier.name %> Range</a>
       </div>
     </div>
   </section>

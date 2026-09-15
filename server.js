@@ -8,6 +8,8 @@ const nodemailer = require('nodemailer');
 
 const { categories } = require('./data/products');
 const testimonials = require('./data/testimonials');
+const previousProjects = require('./data/previousProjects');
+const bestSellers = require('./data/bestSellers');
 const { subcategories: bathroomSubcategories } = require('./data/bathroomCatalog');
 
 const app = express();
@@ -41,21 +43,12 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  const showcase = [
-    categories.kitchen.products[1],
-    categories.bathroom.products[0],
-    categories.home.products[0],
-    categories.bathroom.products[2],
-    categories.kitchen.products[2],
-    categories.home.products[3]
-  ];
-
   res.render('index', {
     title: `${SITE.name} | Bathroom, Kitchen & Home Renovations in Stones Corner`,
     description:
       'Bathroom Kitchen Home designs and builds stunning bathrooms, kitchens and home spaces in Stones Corner, Brisbane. Bright, modern, and built around you.',
     categories,
-    showcase,
+    showcase: previousProjects,
     testimonials
   });
 });
@@ -67,28 +60,36 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/gallery', (req, res) => {
-  res.render('gallery', {
-    title: `Gallery | ${SITE.name}`,
-    description: 'Browse our bathroom, kitchen and home renovation galleries.',
+app.get('/previous-projects', (req, res) => {
+  res.render('previous-projects', {
+    title: `Previous Projects | ${SITE.name}`,
+    description: 'A showcase of bathrooms, kitchens and laundries we\'ve fitted out across Brisbane.',
+    previousProjects
+  });
+});
+
+app.get('/product-range', (req, res) => {
+  res.render('product-range', {
+    title: `Product Range | ${SITE.name}`,
+    description: 'Browse our bathroom, kitchen and laundry product ranges.',
     categories,
     bathroomSubcategoryCount: bathroomSubcategories.length
   });
 });
 
 // Bathrooms get a deeper catalog: subcategory -> supplier -> products -> product detail.
-// These are registered ahead of the generic /gallery/:category route so they take
-// priority for anything under /gallery/bathroom/...
-app.get('/gallery/bathroom', (req, res) => {
+// These are registered ahead of the generic /product-range/:category route so they take
+// priority for anything under /product-range/bathroom/...
+app.get('/product-range/bathroom', (req, res) => {
   res.render('bathroom-subcategories', {
-    title: `Bathrooms Gallery | ${SITE.name}`,
+    title: `Bathrooms | ${SITE.name}`,
     description: 'Browse bathroom vanities, tapware, basins, baths and more by category.',
     subcategories: bathroomSubcategories,
     category: categories.bathroom
   });
 });
 
-app.get('/gallery/bathroom/:subcategory', (req, res, next) => {
+app.get('/product-range/bathroom/:subcategory', (req, res, next) => {
   const subcategory = bathroomSubcategories.find((s) => s.slug === req.params.subcategory);
   if (!subcategory) return next();
 
@@ -99,7 +100,7 @@ app.get('/gallery/bathroom/:subcategory', (req, res, next) => {
   });
 });
 
-app.get('/gallery/bathroom/:subcategory/:supplier', (req, res, next) => {
+app.get('/product-range/bathroom/:subcategory/:supplier', (req, res, next) => {
   const subcategory = bathroomSubcategories.find((s) => s.slug === req.params.subcategory);
   if (!subcategory) return next();
   const supplier = subcategory.suppliers.find((s) => s.slug === req.params.supplier);
@@ -113,13 +114,15 @@ app.get('/gallery/bathroom/:subcategory/:supplier', (req, res, next) => {
   });
 });
 
-app.get('/gallery/bathroom/:subcategory/:supplier/:product', (req, res, next) => {
+app.get('/product-range/bathroom/:subcategory/:supplier/:product', (req, res, next) => {
   const subcategory = bathroomSubcategories.find((s) => s.slug === req.params.subcategory);
   if (!subcategory) return next();
   const supplier = subcategory.suppliers.find((s) => s.slug === req.params.supplier);
   if (!supplier) return next();
   const product = supplier.products.find((p) => p.slug === req.params.product);
   if (!product) return next();
+
+  const currentHref = `/product-range/bathroom/${subcategory.slug}/${supplier.slug}/${product.slug}`;
 
   // Products with a `variants` list (different sizes/finishes, each with its own code)
   // show a variant-picker grid here instead of a single detail page.
@@ -129,7 +132,9 @@ app.get('/gallery/bathroom/:subcategory/:supplier/:product', (req, res, next) =>
       description: product.description,
       subcategory,
       supplier,
-      product
+      product,
+      bestSellers,
+      currentHref
     });
   }
 
@@ -138,11 +143,13 @@ app.get('/gallery/bathroom/:subcategory/:supplier/:product', (req, res, next) =>
     description: product.description,
     subcategory,
     supplier,
-    product
+    product,
+    bestSellers,
+    currentHref
   });
 });
 
-app.get('/gallery/bathroom/:subcategory/:supplier/:product/:variant', (req, res, next) => {
+app.get('/product-range/bathroom/:subcategory/:supplier/:product/:variant', (req, res, next) => {
   const subcategory = bathroomSubcategories.find((s) => s.slug === req.params.subcategory);
   if (!subcategory) return next();
   const supplier = subcategory.suppliers.find((s) => s.slug === req.params.supplier);
@@ -158,23 +165,25 @@ app.get('/gallery/bathroom/:subcategory/:supplier/:product/:variant', (req, res,
     subcategory,
     supplier,
     product,
-    variant
+    variant,
+    bestSellers,
+    currentHref: `/product-range/bathroom/${subcategory.slug}/${supplier.slug}/${product.slug}`
   });
 });
 
-app.get('/gallery/:category', (req, res, next) => {
+app.get('/product-range/:category', (req, res, next) => {
   const category = categories[req.params.category];
   if (!category) return next();
 
-  res.render('gallery-category', {
-    title: `${category.name} Gallery | ${SITE.name}`,
-    description: `Explore our ${category.name.toLowerCase()} renovation gallery.`,
+  res.render('product-range-category', {
+    title: `${category.name} Range | ${SITE.name}`,
+    description: `Explore our ${category.name.toLowerCase()} product range.`,
     category,
     categories
   });
 });
 
-const validProjectTypes = ['bathroom', 'kitchen', 'home', 'other'];
+const validProjectTypes = ['bathroom', 'kitchen', 'laundry', 'other'];
 
 app.get('/contact', (req, res) => {
   const values = {};
@@ -202,7 +211,7 @@ const contactValidators = [
     .trim()
     .notEmpty()
     .withMessage('Please select a project type.')
-    .isIn(['kitchen', 'bathroom', 'home', 'other'])
+    .isIn(['kitchen', 'bathroom', 'laundry', 'other'])
     .withMessage('Please select a valid project type.'),
   body('message').trim().notEmpty().withMessage('Please enter a message.').isLength({ max: 2000 })
 ];

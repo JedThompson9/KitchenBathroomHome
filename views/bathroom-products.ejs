@@ -16,9 +16,9 @@
       <div class="page-banner__content">
         <div class="breadcrumbs">
           <a href="/">Home</a> <span>/</span>
-          <a href="/gallery">Gallery</a> <span>/</span>
-          <a href="/gallery/bathroom">Bathrooms</a> <span>/</span>
-          <a href="/gallery/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
+          <a href="/product-range">Product Range</a> <span>/</span>
+          <a href="/product-range/bathroom">Bathrooms</a> <span>/</span>
+          <a href="/product-range/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
           <span><%= supplier.name %></span>
         </div>
         <h1><%= supplier.name %></h1>
@@ -36,7 +36,7 @@
 
       <div class="photo-grid reveal-stagger">
         <% supplier.products.forEach(function(product) { %>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="photo-grid-item">
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>" class="photo-grid-item">
           <div class="photo-grid-item__media">
             <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy">
           </div>

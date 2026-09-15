@@ -24,7 +24,7 @@
       navToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // On mobile, tapping "Gallery" expands its dropdown instead of navigating away.
+    // On mobile, tapping "Product Range" expands its dropdown instead of navigating away.
     var dropdownParent = mainNav.querySelector('.has-dropdown');
     if (dropdownParent) {
       var dropdownLink = dropdownParent.querySelector('a');
@@ -119,7 +119,7 @@
     });
   }
 
-  // ---- Category pill filter on gallery category pages ----
+  // ---- Category pill filter on product range / previous projects pages ----
   var pills = document.querySelectorAll('[data-filter-pill]');
   var productCards = document.querySelectorAll('[data-product-category]');
   if (pills.length && productCards.length) {
@@ -135,4 +135,42 @@
       });
     });
   }
+
+  // ---- Carousel (e.g. Best Sellers) ----
+  var carousels = document.querySelectorAll('[data-carousel]');
+  carousels.forEach(function (carousel) {
+    var track = carousel.querySelector('[data-carousel-track]');
+    var scope = carousel.closest('.container') || carousel.parentElement;
+    var prevBtn = scope.querySelector('[data-carousel-prev]');
+    var nextBtn = scope.querySelector('[data-carousel-next]');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    function pageWidth() {
+      var item = track.querySelector('.carousel__item');
+      if (!item) return track.clientWidth;
+      var style = window.getComputedStyle(track);
+      var gap = parseFloat(style.columnGap || style.gap || 0) || 0;
+      return item.getBoundingClientRect().width + gap;
+    }
+
+    function itemsPerView() {
+      return Math.max(1, Math.round(track.clientWidth / pageWidth()));
+    }
+
+    function updateButtons() {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 4;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 4;
+    }
+
+    function scrollByPage(direction) {
+      track.scrollBy({ left: pageWidth() * itemsPerView() * direction, behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', function () { scrollByPage(-1); });
+    nextBtn.addEventListener('click', function () { scrollByPage(1); });
+    track.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  });
 })();

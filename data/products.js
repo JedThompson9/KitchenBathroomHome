@@ -58,12 +58,17 @@ const categories = {
         name: 'Everyday Family Kitchen',
         description: 'Practical, beautiful and built to handle busy family life.',
         image: img('1556911220-e15b29be8c8f')
+      },
+      {
+        name: 'Tiles',
+        description: 'Splashback, floor and feature tiles to finish off your kitchen.',
+        image: img('1779366034016-82f308e022df')
       }
     ]
   },
-  home: {
-    slug: 'home',
-    name: 'Home',
+  laundry: {
+    slug: 'laundry',
+    name: 'Laundry',
     tagline: 'Considered living and dining spaces for the whole house.',
     heroImage: img('1583847268964-b28dc8f51f92', 1600),
     products: [

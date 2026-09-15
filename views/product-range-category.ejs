@@ -10,12 +10,12 @@
 
   <section class="page-banner">
     <div class="page-banner__bg">
-      <img src="<%= category.heroImage %>" alt="<%= category.name %> renovation gallery">
+      <img src="<%= category.heroImage %>" alt="<%= category.name %> product range">
     </div>
     <div class="container">
       <div class="page-banner__content">
-        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/gallery">Gallery</a> <span>/</span> <span><%= category.name %></span></div>
-        <h1><%= category.name %> Gallery</h1>
+        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/product-range">Product Range</a> <span>/</span> <span><%= category.name %></span></div>
+        <h1><%= category.name %> Range</h1>
         <p><%= category.tagline %></p>
       </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="container">
       <div class="category-pills">
         <% Object.values(categories).forEach(function(cat) { %>
-          <a href="/gallery/<%= cat.slug %>" class="category-pill <%= cat.slug === category.slug ? 'is-active' : '' %>"><%= cat.name %></a>
+          <a href="/product-range/<%= cat.slug %>" class="category-pill <%= cat.slug === category.slug ? 'is-active' : '' %>"><%= cat.name %></a>
         <% }); %>
       </div>
 

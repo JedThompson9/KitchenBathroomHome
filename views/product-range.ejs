@@ -10,13 +10,13 @@
 
   <section class="page-banner">
     <div class="page-banner__bg">
-      <img src="<%= categories.bathroom.heroImage %>" alt="Gallery of bathroom, kitchen and home renovations">
+      <img src="<%= categories.bathroom.heroImage %>" alt="Bathroom, kitchen and laundry product range">
     </div>
     <div class="container">
       <div class="page-banner__content">
-        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <span>Gallery</span></div>
-        <h1>Our Renovation Gallery</h1>
-        <p>Browse real bathrooms, kitchens and home spaces we've designed and built across Brisbane.</p>
+        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <span>Product Range</span></div>
+        <h1>Our Product Range</h1>
+        <p>Browse the bathroom, kitchen and laundry products we design and build with across Brisbane.</p>
       </div>
     </div>
   </section>
@@ -29,13 +29,13 @@
       </div>
       <div class="category-grid reveal-stagger">
         <% Object.values(categories).forEach(function(cat) { %>
-        <a href="/gallery/<%= cat.slug %>" class="category-card">
-          <img src="<%= cat.heroImage %>" alt="<%= cat.name %> gallery" loading="lazy">
+        <a href="/product-range/<%= cat.slug %>" class="category-card">
+          <img src="<%= cat.heroImage %>" alt="<%= cat.name %> product range" loading="lazy">
           <div class="category-card__body">
-            <span class="count"><%= cat.slug === 'bathroom' ? bathroomSubcategoryCount + ' Categories' : cat.products.length + ' Projects' %></span>
+            <span class="count"><%= cat.slug === 'bathroom' ? bathroomSubcategoryCount + ' Categories' : cat.products.length + ' Products' %></span>
             <h3><%= cat.name %></h3>
             <p><%= cat.tagline %></p>
-            <span class="category-card__link">View Gallery
+            <span class="category-card__link">View Range
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
           </div>

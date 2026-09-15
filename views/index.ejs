@@ -20,7 +20,7 @@
         <p class="lead">From concept to completion, <%= site.name %> designs and builds beautiful bathrooms, kitchens and living spaces that suit the way your family actually lives.</p>
         <div class="hero__actions">
           <a href="/contact" class="btn btn--primary">Get a Free Quote</a>
-          <a href="/gallery" class="btn btn--outline" style="color:#fff;">View Our Gallery</a>
+          <a href="/previous-projects" class="btn btn--outline" style="color:#fff;">View Our Work</a>
         </div>
       </div>
     </div>
@@ -42,9 +42,9 @@
         </div>
 
         <div class="stats-row">
-          <div class="stat"><span class="stat__num">15+</span><span class="stat__label">Years of experience</span></div>
+          <div class="stat"><span class="stat__num">20+</span><span class="stat__label">Years of experience</span></div>
           <div class="stat"><span class="stat__num">800+</span><span class="stat__label">Projects completed</span></div>
-          <div class="stat"><span class="stat__num">4.9/5</span><span class="stat__label">Average client rating</span></div>
+          <div class="stat"><span class="stat__num">4.8/5</span><span class="stat__label">Average client rating</span></div>
           <div class="stat"><span class="stat__num">100%</span><span class="stat__label">Locally owned &amp; operated</span></div>
         </div>
       </div>
@@ -95,7 +95,7 @@
             <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
             <div>
               <h4>Showroom Hours</h4>
-              <p>Mon&ndash;Fri: 8:30am&ndash;5pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
+              <p>Mon&ndash;Fri: 8:30am&ndash;4:30pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
             </div>
           </div>
           <div class="location__detail">
@@ -129,13 +129,13 @@
       <div class="showcase-grid reveal-stagger">
         <% showcase.forEach(function(item, i) { %>
         <div class="showcase-item">
-          <img src="<%= item.image %>" alt="<%= item.name %>" loading="lazy">
-          <span class="showcase-item__label"><%= item.name %></span>
+          <img src="<%= item.image %>" alt="<%= item.title %>" loading="lazy">
+          <span class="showcase-item__label"><%= item.title %></span>
         </div>
         <% }); %>
       </div>
       <div class="text-center mt-7">
-        <a href="/gallery" class="btn btn--primary">Explore the Full Gallery</a>
+        <a href="/previous-projects" class="btn btn--primary">View All Our Projects</a>
       </div>
     </div>
   </section>
@@ -146,6 +146,7 @@
       <div class="section-head center">
         <span class="eyebrow">Client Love</span>
         <h2>Don't just take our word for it.</h2>
+        <p class="testimonials-sub">Real reviews from our Google Business profile.</p>
       </div>
       <div class="testimonials-track reveal-stagger">
         <% testimonials.forEach(function(t) { %>
@@ -157,14 +158,17 @@
           </div>
           <blockquote>&ldquo;<%= t.quote %>&rdquo;</blockquote>
           <div class="testimonial-card__author">
-            <img src="<%= t.avatar %>" alt="<%= t.name %>" loading="lazy">
+            <div class="avatar-initials" aria-hidden="true"><%= t.name.split(' ').map(function(w){ return w[0]; }).join('').slice(0, 2).toUpperCase() %></div>
             <div>
               <strong><%= t.name %></strong>
-              <span><%= t.location %></span>
+              <span><%= t.meta %></span>
             </div>
           </div>
         </div>
         <% }); %>
+      </div>
+      <div class="testimonials-cta">
+        <a href="https://share.google/wy5x1ry4gf5Ntve6c" target="_blank" rel="noopener" class="btn btn--outline">See all reviews on Google</a>
       </div>
     </div>
   </section>

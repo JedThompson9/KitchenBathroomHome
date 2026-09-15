@@ -1,10 +1,21 @@
 // Bathroom gallery catalog: Subcategory -> Supplier -> Products -> Product detail.
 // Otti Australia (https://www.ottiaustralia.com.au/) is a confirmed real supplier and
-// covers all 8 categories below, so it's used throughout with their actual collection
-// names. Product photos are still placeholder stock imagery pending real product
-// photography from Otti (or the store's own supplier photo assets) — swap the `image`
-// fields once that's available. Add further suppliers per category by copying the
-// pattern used for Otti.
+// covers all 8 non-tile categories below, so it's used throughout with their actual
+// collection names. Product photos are still placeholder stock imagery pending real
+// product photography from Otti (or the store's own supplier photo assets) — swap the
+// `image` fields once that's available. Add further suppliers per category by copying
+// the pattern used for Otti.
+//
+// The Tiles category uses a second confirmed real supplier, Stone Ambassador — only
+// the supplier name is confirmed so far, so its product entries below are generic
+// placeholders (stock tile photography, made-up range names) pending the actual
+// Stone Ambassador product/range list and photos.
+//
+// Fienza, Modern National, Meir and BNK are further confirmed real suppliers, added
+// per category below — only each supplier's name is confirmed so far (no product/range
+// list yet), so every product entry under them is a single generic placeholder ("<Brand>
+// <Category> Range") with stock photography, clearly not a real catalog. Swap in the
+// real range names, codes and photos once available, same as Otti/Stone Ambassador.
 
 const { img } = require('./products');
 
@@ -24,7 +35,31 @@ const otti = {
   name: 'Otti Australia',
   website: 'https://www.ottiaustralia.com.au/',
   logo: '/images/suppliers/otti-australia-logo.png',
-  blurb: 'Refined Australian design — a bathroom wholesale supplier with 30+ years of industry experience.'
+  blurb: 'Proud stocker of Otti Australia\'s premium bathroom fixtures.'
+};
+
+const fienza = {
+  slug: 'fienza',
+  name: 'Fienza',
+  blurb: 'Proud stocker of Fienza\'s bathroom fixtures and fittings.'
+};
+
+const modernNational = {
+  slug: 'modern-national',
+  name: 'Modern National',
+  blurb: 'Proud stocker of Modern National\'s bathroom fixtures and fittings.'
+};
+
+const meir = {
+  slug: 'meir',
+  name: 'Meir',
+  blurb: 'Proud stocker of Meir\'s tapware and bathroom fittings.'
+};
+
+const bnk = {
+  slug: 'bnk',
+  name: 'BNK',
+  blurb: 'Proud stocker of BNK\'s baths and toilet suites.'
 };
 
 const subcategories = [
@@ -203,6 +238,12 @@ const subcategories = [
           { slug: 'byron-oak', name: 'Byron Oak', description: 'Part of Otti Australia\'s Byron Oak vanity collection.', image: vanityImg('byron-oak') },
           { slug: 'byron-walnut', name: 'Byron Walnut', description: 'Part of Otti Australia\'s Byron Walnut vanity collection.', image: vanityImg('byron-walnut') }
         ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-vanity-range', name: 'Fienza Vanity Range', description: 'Placeholder listing for Fienza\'s vanity range — swap in real products once confirmed.', image: img('1584622650111-993a426fbf0a') }
+        ]
       }
     ]
   },
@@ -218,6 +259,12 @@ const subcategories = [
           { slug: 'led-newport-shaving-cabinet', name: 'LED Newport Shaving Cabinet', description: 'Otti Australia\'s LED Newport shaving cabinet, available in Sable Walnut and Woodland Oak finishes.', image: img('1585412727061-be62ede56406') },
           { slug: 'led-bondi-shaving-cabinet', name: 'LED Bondi Shaving Cabinet', description: 'Otti Australia\'s LED Bondi shaving cabinet with built-in lighting.', image: img('1585412727061-be62ede56406') },
           { slug: 'designer-shaving-cabinet', name: 'Designer Shaving Cabinet', description: 'Otti Australia\'s Designer shaving cabinet with adjustable internal shelving.', image: img('1585412727061-be62ede56406') }
+        ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-shaving-cabinet-range', name: 'Fienza Shaving Cabinet Range', description: 'Placeholder listing for Fienza\'s shaving cabinet range — swap in real products once confirmed.', image: img('1585412727061-be62ede56406') }
         ]
       }
     ]
@@ -283,6 +330,12 @@ const subcategories = [
               { slug: 'london-700mm-black', code: 'MFM700B-N', name: 'London 700mm Black Metal Frame Tuffi Mirror', image: mirrorImg('london-700mm-black') }
             ]
           }
+        ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-mirror-range', name: 'Fienza Mirror Range', description: 'Placeholder listing for Fienza\'s mirror range — swap in real products once confirmed.', image: img('1740595362788-78bc54ea1bad') }
         ]
       }
     ]
@@ -356,6 +409,18 @@ const subcategories = [
             ]
           }
         ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-basin-range', name: 'Fienza Basin Range', description: 'Placeholder listing for Fienza\'s basin range — swap in real products once confirmed.', image: img('1584069793933-57852d7060ea') }
+        ]
+      },
+      {
+        ...modernNational,
+        products: [
+          { slug: 'modern-national-basin-range', name: 'Modern National Basin Range', description: 'Placeholder listing for Modern National\'s basin range — swap in real products once confirmed.', image: img('1584069793933-57852d7060ea') }
+        ]
       }
     ]
   },
@@ -391,6 +456,12 @@ const subcategories = [
             ]
           }
         ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-handle-range', name: 'Fienza Handle Range', description: 'Placeholder listing for Fienza\'s cabinet handle range — swap in real products once confirmed.', image: img('1693892985308-44965a6060d1') }
+        ]
       }
     ]
   },
@@ -406,6 +477,24 @@ const subcategories = [
           { slug: 'oskar-series', name: 'Oskar Series', description: 'Otti Australia\'s Oskar series tapware.', image: img('1613849925387-6e7f31f0cf40') },
           { slug: 'vetto-series', name: 'Vetto Series', description: 'Otti Australia\'s Vetto series tapware.', image: img('1564518823660-8dc28fa58f21') },
           { slug: 'roul-series', name: 'Roul Series', description: 'Otti Australia\'s Roul series tapware.', image: img('1613849925387-6e7f31f0cf40') }
+        ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-tapware-range', name: 'Fienza Tapware Range', description: 'Placeholder listing for Fienza\'s tapware range — swap in real products once confirmed.', image: img('1613849925387-6e7f31f0cf40') }
+        ]
+      },
+      {
+        ...modernNational,
+        products: [
+          { slug: 'modern-national-tapware-range', name: 'Modern National Tapware Range', description: 'Placeholder listing for Modern National\'s tapware and shower range — swap in real products once confirmed.', image: img('1564518823660-8dc28fa58f21') }
+        ]
+      },
+      {
+        ...meir,
+        products: [
+          { slug: 'meir-tapware-range', name: 'Meir Tapware Range', description: 'Placeholder listing for Meir\'s tapware range — swap in real products once confirmed.', image: img('1613849925387-6e7f31f0cf40') }
         ]
       }
     ]
@@ -525,6 +614,18 @@ const subcategories = [
           },
           { slug: 'bath-accessories', name: 'Bath Accessories', description: 'Otti Australia\'s bath accessories range.', image: '/images/products/baths/bath-accessories.jpg' }
         ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-bath-range', name: 'Fienza Bath Range', description: 'Placeholder listing for Fienza\'s bath range — swap in real products once confirmed.', image: img('1620626011761-996317b8d101') }
+        ]
+      },
+      {
+        ...bnk,
+        products: [
+          { slug: 'bnk-bath-range', name: 'BNK Bath Range', description: 'Placeholder listing for BNK\'s bath range — swap in real products once confirmed.', image: img('1620626011761-996317b8d101') }
+        ]
       }
     ]
   },
@@ -539,6 +640,37 @@ const subcategories = [
         products: [
           { slug: 'wall-face-pan', name: 'Wall Face Pan', description: 'Otti Australia\'s wall face pan.', image: img('1587527901949-ab0341697c1e') },
           { slug: 'inwall-cistern-and-plate', name: 'Inwall Cistern & Plate', description: 'Otti Australia\'s R&T inwall cistern and flush plate.', image: img('1589824783837-6169889fa20f') }
+        ]
+      },
+      {
+        ...fienza,
+        products: [
+          { slug: 'fienza-toilet-range', name: 'Fienza Toilet Suite Range', description: 'Placeholder listing for Fienza\'s toilet suite range — swap in real products once confirmed.', image: img('1587527901949-ab0341697c1e') }
+        ]
+      },
+      {
+        ...bnk,
+        products: [
+          { slug: 'bnk-toilet-range', name: 'BNK Toilet Suite Range', description: 'Placeholder listing for BNK\'s toilet suite range — swap in real products once confirmed.', image: img('1589824783837-6169889fa20f') }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'tiles',
+    name: 'Tiles',
+    tagline: 'Floor, wall and feature tiles for bathrooms and kitchens.',
+    image: img('1718463383723-9a5f52707e75'),
+    suppliers: [
+      {
+        slug: 'stone-ambassador',
+        name: 'Stone Ambassador',
+        blurb: 'Tile supplier for bathroom and kitchen floor, wall and feature tiles.',
+        products: [
+          { slug: 'subway-wall-tiles', name: 'Subway Wall Tiles', description: 'Classic gloss subway tiles for kitchen splashbacks and bathroom walls.', image: img('1779366034016-82f308e022df') },
+          { slug: 'sage-mosaic-tiles', name: 'Sage Mosaic Tiles', description: 'Sage green and white square tiles for feature walls.', image: img('1523350165414-082d792c4bcc') },
+          { slug: 'marble-look-floor-tiles', name: 'Marble-Look Floor Tiles', description: 'Large-format porcelain floor tiles with a marble finish.', image: img('1706629503586-2731f65587ae') },
+          { slug: 'pattern-feature-tiles', name: 'Pattern Feature Tiles', description: 'Decorative patterned tiles for statement floors.', image: img('1718463383723-9a5f52707e75') }
         ]
       }
     ]

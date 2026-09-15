@@ -63,7 +63,7 @@ function errorFor(field) {
             <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
             <div>
               <h4>Showroom Hours</h4>
-              <p>Mon&ndash;Fri: 8:30am&ndash;5pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
+              <p>Mon&ndash;Fri: 8:30am&ndash;4:30pm<br>Saturday: 9am&ndash;1pm<br>Sunday: Closed</p>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ function errorFor(field) {
                   <option value="" disabled <%= !values.projectType ? 'selected' : '' %>>Select a project type</option>
                   <option value="bathroom" <%= values.projectType === 'bathroom' ? 'selected' : '' %>>Bathroom</option>
                   <option value="kitchen" <%= values.projectType === 'kitchen' ? 'selected' : '' %>>Kitchen</option>
-                  <option value="home" <%= values.projectType === 'home' ? 'selected' : '' %>>Home / Living Space</option>
+                  <option value="laundry" <%= values.projectType === 'laundry' ? 'selected' : '' %>>Laundry</option>
                   <option value="other" <%= values.projectType === 'other' ? 'selected' : '' %>>Other</option>
                 </select>
                 <% if (errorFor('projectType')) { %><span class="form-field__error"><%= errorFor('projectType') %></span><% } %>

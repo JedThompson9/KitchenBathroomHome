@@ -10,12 +10,12 @@
 
   <section class="page-banner">
     <div class="page-banner__bg">
-      <img src="<%= category.heroImage %>" alt="Bathrooms gallery">
+      <img src="<%= category.heroImage %>" alt="Bathroom product range">
     </div>
     <div class="container">
       <div class="page-banner__content">
-        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/gallery">Gallery</a> <span>/</span> <span>Bathrooms</span></div>
-        <h1>Bathrooms Gallery</h1>
+        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/product-range">Product Range</a> <span>/</span> <span>Bathrooms</span></div>
+        <h1>Bathrooms Range</h1>
         <p><%= category.tagline %></p>
       </div>
     </div>
@@ -24,9 +24,9 @@
   <section>
     <div class="container">
       <div class="category-pills">
-        <a href="/gallery/bathroom" class="category-pill is-active">Bathrooms</a>
-        <a href="/gallery/kitchen" class="category-pill">Kitchens</a>
-        <a href="/gallery/home" class="category-pill">Home</a>
+        <a href="/product-range/bathroom" class="category-pill is-active">Bathrooms</a>
+        <a href="/product-range/kitchen" class="category-pill">Kitchens</a>
+        <a href="/product-range/laundry" class="category-pill">Laundry</a>
       </div>
 
       <div class="section-head">
@@ -36,7 +36,7 @@
 
       <div class="subcategory-grid reveal-stagger">
         <% subcategories.forEach(function(sub) { %>
-        <a href="/gallery/bathroom/<%= sub.slug %>" class="subcategory-card">
+        <a href="/product-range/bathroom/<%= sub.slug %>" class="subcategory-card">
           <img src="<%= sub.image %>" alt="<%= sub.name %>" loading="lazy">
           <div class="subcategory-card__body">
             <span class="count"><%= sub.suppliers.length %> Supplier<%= sub.suppliers.length === 1 ? '' : 's' %></span>

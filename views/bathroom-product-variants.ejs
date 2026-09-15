@@ -16,10 +16,10 @@
       <div class="page-banner__content">
         <div class="breadcrumbs">
           <a href="/">Home</a> <span>/</span>
-          <a href="/gallery">Gallery</a> <span>/</span>
-          <a href="/gallery/bathroom">Bathrooms</a> <span>/</span>
-          <a href="/gallery/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
-          <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>"><%= supplier.name %></a> <span>/</span>
+          <a href="/product-range">Product Range</a> <span>/</span>
+          <a href="/product-range/bathroom">Bathrooms</a> <span>/</span>
+          <a href="/product-range/bathroom/<%= subcategory.slug %>"><%= subcategory.name %></a> <span>/</span>
+          <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>"><%= supplier.name %></a> <span>/</span>
           <span><%= product.name %></span>
         </div>
         <h1><%= product.name %></h1>
@@ -37,7 +37,7 @@
 
       <div class="photo-grid reveal-stagger">
         <% product.variants.forEach(function(variant) { %>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>/<%= variant.slug %>" class="photo-grid-item">
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>/<%= product.slug %>/<%= variant.slug %>" class="photo-grid-item">
           <div class="photo-grid-item__media">
             <img src="<%= variant.image %>" alt="<%= variant.name %>" loading="lazy">
           </div>
@@ -48,6 +48,8 @@
       </div>
     </div>
   </section>
+
+  <%- include('partials/best-sellers') %>
 
   <section class="section-primary">
     <div class="container text-center reveal">

@@ -25,8 +25,9 @@ npm run dev
 
 - `/` — Home (hero, intro, CTA, showroom location & map, work showcase, testimonials)
 - `/about` — About / why choose us
-- `/gallery` — Gallery hub linking to the 3 category galleries
-- `/gallery/bathroom`, `/gallery/kitchen`, `/gallery/home` — Category galleries
+- `/previous-projects` — Showcase of completed bathroom, kitchen and laundry projects
+- `/product-range` — Product range hub linking to the 3 category ranges
+- `/product-range/bathroom`, `/product-range/kitchen`, `/product-range/laundry` — Category ranges
 - `/contact` — Contact form + showroom map
 
 ## Contact form emails
@@ -35,6 +36,6 @@ By default, form submissions are just logged to the console. To have them actual
 
 ## Content
 
-- Product/gallery data lives in `data/products.js`, testimonials in `data/testimonials.js` — edit these to update copy or swap images.
+- Product range data lives in `data/products.js`, previous project data in `data/previousProjects.js`, testimonials in `data/testimonials.js` — edit these to update copy or swap images.
 - All imagery is sourced from Unsplash (free-to-use) via direct CDN links; swap in real project photos when available.
 - The BKH logo lives at `public/images/logo-navy.png` (light backgrounds), `logo-white.png` (dark backgrounds), and `favicon-mark.png` (browser tab icon).

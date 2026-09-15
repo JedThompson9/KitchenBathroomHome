@@ -20,7 +20,7 @@ function initials(name) {
     </div>
     <div class="container">
       <div class="page-banner__content">
-        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/gallery">Gallery</a> <span>/</span> <a href="/gallery/bathroom">Bathrooms</a> <span>/</span> <span><%= subcategory.name %></span></div>
+        <div class="breadcrumbs"><a href="/">Home</a> <span>/</span> <a href="/product-range">Product Range</a> <span>/</span> <a href="/product-range/bathroom">Bathrooms</a> <span>/</span> <span><%= subcategory.name %></span></div>
         <h1><%= subcategory.name %></h1>
         <p><%= subcategory.tagline %></p>
       </div>
@@ -36,7 +36,7 @@ function initials(name) {
 
       <div class="supplier-grid reveal-stagger">
         <% subcategory.suppliers.forEach(function(supplier) { %>
-        <a href="/gallery/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>" class="card supplier-card">
+        <a href="/product-range/bathroom/<%= subcategory.slug %>/<%= supplier.slug %>" class="card supplier-card">
           <div class="supplier-card__header">
             <% if (supplier.logo) { %>
               <img src="<%= supplier.logo %>" alt="<%= supplier.name %> logo" class="supplier-card__logo">
@@ -44,7 +44,6 @@ function initials(name) {
               <span class="supplier-avatar"><%= initials(supplier.name) %></span>
             <% } %>
             <h3><%= supplier.name %></h3>
-            <span class="supplier-card__count"><%= supplier.products.length %> product<%= supplier.products.length === 1 ? '' : 's' %></span>
           </div>
           <p class="blurb"><%= supplier.blurb %></p>
           <div class="supplier-card__footer">

@@ -1,4 +1,4 @@
-<header class="site-header" id="siteHeader">
+<header class="site-header <%= currentPath === '/' ? 'site-header--overlay' : '' %>" id="siteHeader">
   <div class="container site-header__inner">
     <a href="/" class="brand">
       <img src="/images/logo-navy.png" alt="<%= site.name %>" class="brand__mark">
@@ -8,12 +8,13 @@
       <ul class="main-nav__list">
         <li><a href="/" class="<%= currentPath === '/' ? 'is-active' : '' %>">Home</a></li>
         <li><a href="/about" class="<%= currentPath === '/about' ? 'is-active' : '' %>">About</a></li>
+        <li><a href="/previous-projects" class="<%= currentPath === '/previous-projects' ? 'is-active' : '' %>">Previous Projects</a></li>
         <li class="has-dropdown">
-          <a href="/gallery" class="<%= currentPath.startsWith('/gallery') ? 'is-active' : '' %>">Gallery</a>
+          <a href="/product-range" class="<%= currentPath.startsWith('/product-range') ? 'is-active' : '' %>">Product Range</a>
           <ul class="dropdown">
-            <li><a href="/gallery/bathroom">Bathrooms</a></li>
-            <li><a href="/gallery/kitchen">Kitchens</a></li>
-            <li><a href="/gallery/home">Home</a></li>
+            <li><a href="/product-range/bathroom">Bathrooms</a></li>
+            <li><a href="/product-range/kitchen">Kitchens</a></li>
+            <li><a href="/product-range/laundry">Laundry</a></li>
           </ul>
         </li>
         <li><a href="/contact" class="<%= currentPath === '/contact' ? 'is-active' : '' %>">Contact</a></li>
